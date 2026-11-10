@@ -1,0 +1,17 @@
+<!doctype html>
+<!-- Enable Banking redirect bridge. Host this file on any static HTTPS host (e.g. GitHub Pages) and register its
+     URL as the redirect URL of your Enable Banking application. It forwards ?code=…&state=… to the Mac app.
+     It contains no secrets and sends nothing anywhere else. -->
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Kontolix</title>
+<meta name="referrer" content="no-referrer">
+<style>body{font:16px -apple-system,system-ui,sans-serif;display:grid;place-items:center;height:100vh;margin:0}</style></head>
+<body><p id="m">Returning to Kontolix…</p>
+<script>
+  var target = "kontolix://eb-callback" + window.location.search;
+  window.location.replace(target);
+  setTimeout(function () {
+    document.getElementById("m").innerHTML = 'If nothing happens, <a href="' + target.replace(/"/g, "") + '">open Kontolix</a>.';
+  }, 1500);
+</script></body>
+</html>
